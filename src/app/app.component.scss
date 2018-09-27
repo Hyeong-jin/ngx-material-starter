@@ -1,0 +1,22 @@
+.header-icon {
+  padding: 0 14px;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.app-container {
+  position: absolute;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  mat-sidenav {
+    padding: 15px;
+  }
+  mat-sidenav-content {
+    padding: 15px;
+  }
+}

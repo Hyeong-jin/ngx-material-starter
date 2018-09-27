@@ -13,10 +13,14 @@ import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppState } from './store/app.state';
+import { AppService } from './providers/app.service';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeApiService } from './providers/fake-api.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,11 +29,12 @@ import { AppState } from './store/app.state';
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
+    InMemoryWebApiModule.forRoot(FakeApiService, { delay: 0 }),
     NgxsModule.forRoot([AppState]),
     NgxsRouterPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
-  providers: [],
+  providers: [    AppService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

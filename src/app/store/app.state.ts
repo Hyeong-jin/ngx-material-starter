@@ -16,5 +16,5 @@ export interface AppStateModel {
     dashboards: []
   }
 })
-export class AppState { }
-
+export class AppState {
+}

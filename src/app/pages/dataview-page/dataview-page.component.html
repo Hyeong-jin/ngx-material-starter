@@ -1,3 +1,19 @@
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>First Row</span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <form [formGroup]="searchForm" novalidate ngxsForm="dataview.searchForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="name"/>
+        <input type="number" formControlName="weight"/>
+        <input type="text" formControlName="symbol"/>
+        <button type="submit">Find</button>
+    </form>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
 

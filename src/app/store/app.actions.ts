@@ -1,4 +1,4 @@
 export class LoadDashboards {
   static readonly type = '[App] LoadDashboards]';
-  constructor(public readonly payload?: any) {}
+  constructor(public readonly payload?: any) { }
 }

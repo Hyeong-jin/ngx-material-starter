@@ -17,6 +17,7 @@ import { AppService } from './providers/app.service';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FakeApiService } from './providers/fake-api.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,18 @@ import { FakeApiService } from './providers/fake-api.service';
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
-    InMemoryWebApiModule.forRoot(FakeApiService, { delay: 0 }),
+
+    (environment.production ? [] : InMemoryWebApiModule.forRoot(FakeApiService, { delay: 0 })),
+
     NgxsModule.forRoot([AppState]),
     NgxsRouterPluginModule.forRoot(),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsReduxDevtoolsPluginModule.forRoot({
+      name: 'NGXS',
+      disabled: environment.production,
+      maxAge: 100
+    })
   ],
-  providers: [    AppService  ],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
